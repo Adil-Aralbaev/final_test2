@@ -5,7 +5,7 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile.prod
-    command: gunicorn --workers 4 app.wsgi:application --bin 0.0.0.0:8000
+    command: gunicorn --workers 4 f_proj.wsgi:application --bin 0.0.0.0:8000
     volumes:
       - static_volume:/home/app/web/static
     expose:
