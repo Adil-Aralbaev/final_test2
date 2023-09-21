@@ -1,0 +1,7 @@
+Django==4.2
+
+djangorestframework==3.14.0
+drf-yasg==1.21.7
+requests
+
+psycopg2-binary
