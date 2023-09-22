@@ -47,7 +47,7 @@ RUN mkdir $APP_HOME/static
 WORKDIR $APP_HOME
 
 # install dependencies
-RUN apk update && apk add libpq
+RUN apk update && apk apk add libpq
 COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements.txt .
 RUN pip install --no-cache /wheels/*
@@ -65,6 +65,7 @@ RUN chown -R app:app $APP_HOME
 
 # change to the app user
 USER app
+RUN chmod +x  home/app/web/entrypoint.sh
 
 # run entrypoint.prod.sh
 ENTRYPOINT ["/home/app/web/entrypoint.sh"]
